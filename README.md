@@ -132,7 +132,6 @@ Functions provided in this utility
 | Description  | This is the main funtion to build and run the linear regression model. As of now it prints output on console. It needs to be changes to retrun all the values so that it can be displayed on UI |
 | template     | main(inputFile, targetColumn, *featuresAndValue) |
 | return value | prints the end to end result on console |
-| Example      | main("<csv data file>","<target column>","<x1= value1>","<x2= value2>",...,"<x3= value3>") 
-	main("data/multivariate-date.csv","Salary","Education=16","Experience=5","Hours per week=50")
+| Example      | main("<csv data file>","<target column>","<x1= value1>","<x2= value2>",...,"<x3= value3>") <br> main("data/multivariate-date.csv","Salary","Education=16","Experience=5","Hours per week=50")
 |
 
