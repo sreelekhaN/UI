@@ -2,7 +2,7 @@
 This repo is for the project assignment of Data Analytics 2019 Jan-May batch.
 
 
-# statics and linear regression Module
+# statistics and linear regression Module
 [lr_functions.py ](lr_functions.py)
 It is an utility to for estimating the value using linear regression model. It works for multivariate data.
 
