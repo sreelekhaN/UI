@@ -29,12 +29,12 @@ def fit_linear_equation(X, Y):
     solved_parameters = np.linalg.solve(parameters, values)
     return solved_parameters
 
-def get_non_linear_quadratic_estimated_value_of_y(a, b, x):
+def get_non_linear_exponential_estimated_value_of_y(a, b, x):
     return a * (b ** x)    
 
 def get_non_linear_exponential_estimated_values_of_y(a, b, X):
     x = np.array(X)
-    return get_non_linear_quadratic_estimated_value_of_y(a,b,x)
+    return get_non_linear_exponential_estimated_value_of_y(a,b,x)
 
 def fit_non_regression_exponential_equation(X, Y):
     log_Y = list_log(Y)
@@ -54,7 +54,7 @@ def fit_non_regression_exponential_equation_test():
     plt.show()
     print('a.b^x')
     print('y = {0} * {1} ^x '.format(a,b))
-    print(get_non_linear_quadratic_estimated_value_of_y(a, b , 5.5))
+    print(get_non_linear_exponential_estimated_value_of_y(a, b , 5.5))
 
 # fit_non_regression_exponential_equation_test()
 
