@@ -11,7 +11,7 @@ def csv_reader_for_univariate(input_file):
 	    for row in csv_reader:
 	        if line_count == 0:
 	            line_count += 1
-	        first_column.append(float(row["sales"]))
+	        first_column.append(float(row["Y"]))
 	        line_count += 1
 	return first_column
 
@@ -31,4 +31,4 @@ def get_correlogram_integration_csv_test():
 
 	get_correlogram_integration_csv(thefile, 20)
 
-get_correlogram_integration_csv_test()
+# get_correlogram_integration_csv_test()
