@@ -3,35 +3,32 @@ import os
 import matplotlib.pyplot as plt
 from ACF import get_correlogram
 
-package_dir = os.path.dirname(os.path.abspath(__file__))
-thefile = os.path.join(package_dir,'data/univariate.csv')
+def csv_reader_for_univariate(input_file):
+	first_column = []
+	with open (input_file) as csv_file:
+	    csv_reader = csv.DictReader(csv_file)
+	    line_count = 0
+	    for row in csv_reader:
+	        if line_count == 0:
+	            line_count += 1
+	        first_column.append(float(row["sales"]))
+	        line_count += 1
+	return first_column
 
-Y_axis_time_series_data = []
-X_axis_time = []
-
-with open (thefile) as csv_file:
-    csv_reader = csv.DictReader(csv_file)
-    line_count = 0
-    for row in csv_reader:
-        if line_count == 0:
-            line_count += 1
-        Y_axis_time_series_data.append(float(row["sales"]))
-        line_count += 1
-
-
-print(Y_axis_time_series_data)
-
-
-def get_correlogram_integration():
-	number_of_lags = 20
+def get_correlogram_integration_csv(input_file, number_of_lags):
+	Y_axis_time_series_data = csv_reader_for_univariate(input_file)
 	Y_axis_ACF = get_correlogram(Y_axis_time_series_data, number_of_lags)
-	for i in range(1, len(Y_axis_time_series_data) + 1):
-		X_axis_time.append(i)
 	X_axis_lag = []
 	for i in range(1, number_of_lags + 1):
 		X_axis_lag.append(i)
 	plt.step(X_axis_lag, Y_axis_ACF)
 	plt.show()
+	
 
+def get_correlogram_integration_csv_test():
+	package_dir = os.path.dirname(os.path.abspath(__file__))
+	thefile = os.path.join(package_dir,'data/univariate.csv')
 
-get_correlogram_integration()
+	get_correlogram_integration_csv(thefile, 20)
+
+get_correlogram_integration_csv_test()
